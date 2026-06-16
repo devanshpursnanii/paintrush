@@ -1,0 +1,6 @@
+{
+  "name": "PaintRush",
+  "description": "A thrilling fast-paced digital canvas challenge where users race against a 3-minute timer to recreate famous classical painting masterpieces.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

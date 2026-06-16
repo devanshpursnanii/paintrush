@@ -429,7 +429,7 @@ export default function ResultsScreen({
             <div className="flex gap-1.5 items-center p-1.5 bg-white border border-black rounded-none text-[8.5px] leading-tight shrink-0" id="evaluation-footnote">
               <AlertCircle className="w-3.5 h-3.5 text-black shrink-0" />
               <p className="text-black/80 font-semibold truncate">
-                Evaluation weights: 50% SSIM, 30% Color, 20% Edges.
+                Evaluation weights: 30% SSIM, 50% Color, 20% Edges.
               </p>
             </div>
           </div>

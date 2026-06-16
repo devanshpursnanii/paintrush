@@ -346,7 +346,7 @@ export async function evaluateDrawing(
 
   // --- FINAL COMBINED SCORE CALCULATION ---
   // Formula: 50% SSIM + 30% Color Similarity + 20% Edge Similarity
-  let rawTotalScore = (ssimScore * 0.5) + (colorScore * 0.3) + (edgeScore * 0.2);
+  let rawTotalScore = (ssimScore * 0.3) + (colorScore * 0.5) + (edgeScore * 0.2);
   let totalScore = Math.min(10.0, Math.max(0.0, Math.round(rawTotalScore * 10) / 10));
 
   // Overwrite if canvas looks blank or has fewer than 100 drawn pixels (~0.6% of canvas)

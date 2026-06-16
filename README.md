@@ -10,7 +10,7 @@ No accounts. No uploads. No server-side image processing.
 
 ## 🚀 Live Demo
 
-**Play here:** paintrush.vercel.app
+**Play here:** [paintrush.vercel.app](https://paintrush.vercel.app/)
 
 ## 🎮 How It Works
 

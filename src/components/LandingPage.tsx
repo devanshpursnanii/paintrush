@@ -55,7 +55,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
               <h3 className="font-extrabold uppercase tracking-tight text-[11px] text-[#1C1C1C]">1. Classic Masterpiece</h3>
             </div>
             <p className="text-[#1C1C1C]/80 text-[10px] leading-snug font-bold">
-              We pick from <span className="underline decoration-[#FF4500] decoration-1 font-black">curated classical artworks</span> dynamically at start.
+              We pick from curated classical artworks dynamically at start.
             </p>
           </div>
 
@@ -81,7 +81,7 @@ export default function LandingPage({ onStartGame }: LandingPageProps) {
               <h3 className="font-extrabold uppercase tracking-tight text-[11px] text-[#1C1C1C]">3. AI Computer Vision</h3>
             </div>
             <p className="text-[#1C1C1C]/80 text-[10px] leading-snug font-bold">
-              Local scanner calculates <span className="underline decoration-[#FF4500] decoration-1 font-black">SSIM similarity</span>, and Canny match coefficients.
+              Local scanner calculates SSIM similarity, and Canny match coefficients.
             </p>
           </div>
 

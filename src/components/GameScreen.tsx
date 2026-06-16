@@ -81,15 +81,15 @@ export default function GameScreen({ painting, onFinishGame, onTimerExpired }: G
   }, [secondsLeft]);
 
   // Sync state when custom Hue, Saturation, Brightness are adjusted
-  useEffect(() => {
-    const { h, s, b } = hsb;
-    // Map HSB/HSV back to dynamic CSS HSL
-    const l = (b / 100) * (1 - s / 200) * 100;
-    setToolState((prev) => ({
-      ...prev,
-      color: `hsl(${h}, ${s}%, ${l}%)`
-    }));
-  }, [hsb]);
+  // useEffect(() => {
+  //   const { h, s, b } = hsb;
+  //   // Map HSB/HSV back to dynamic CSS HSL
+  //   const l = (b / 100) * (1 - s / 200) * 100;
+  //   setToolState((prev) => ({
+  //     ...prev,
+  //     color: `hsl(${h}, ${s}%, ${l}%)`
+  //   }));
+  // }, [hsb]);
 
   // Color generator helper for real-time slider backgrounds
   const getHslString = (h: number, s: number, b: number): string => {
@@ -303,7 +303,24 @@ export default function GameScreen({ painting, onFinishGame, onTimerExpired }: G
                   min="0"
                   max="360"
                   value={hsb.h}
-                  onChange={(e) => setHsb({ ...hsb, h: parseInt(e.target.value) })}
+                  onChange={(e) => {
+  const newHsb = {
+    ...hsb,
+    h: parseInt(e.target.value)
+  };
+
+  setHsb(newHsb);
+
+  const l =
+    (newHsb.b / 100) *
+    (1 - newHsb.s / 200) *
+    100;
+
+  setToolState(prev => ({
+    ...prev,
+    color: `hsl(${newHsb.h}, ${newHsb.s}%, ${l}%)`
+  }));
+}}
                   className="flex-grow h-2 border border-black rounded-none appearance-none cursor-pointer"
                   style={{
                     background: "linear-gradient(to right, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 67%, #ff00ff 83%, #ff0000 100%)",
@@ -321,8 +338,24 @@ export default function GameScreen({ painting, onFinishGame, onTimerExpired }: G
                   min="0"
                   max="100"
                   value={hsb.s}
-                  onChange={(e) => setHsb({ ...hsb, s: parseInt(e.target.value) })}
-                  className="flex-grow h-2 border border-black rounded-none appearance-none cursor-pointer"
+onChange={(e) => {
+  const newHsb = {
+    ...hsb,
+    s: parseInt(e.target.value)
+  };
+
+  setHsb(newHsb);
+
+  const l =
+    (newHsb.b / 100) *
+    (1 - newHsb.s / 200) *
+    100;
+
+  setToolState(prev => ({
+    ...prev,
+    color: `hsl(${newHsb.h}, ${newHsb.s}%, ${l}%)`
+  }));
+}}                  className="flex-grow h-2 border border-black rounded-none appearance-none cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, ${getHslString(hsb.h, 0, hsb.b)}, ${getHslString(hsb.h, 100, hsb.b)})`,
                     accentColor: "#1C1C1C"
@@ -339,8 +372,24 @@ export default function GameScreen({ painting, onFinishGame, onTimerExpired }: G
                   min="0"
                   max="100"
                   value={hsb.b}
-                  onChange={(e) => setHsb({ ...hsb, b: parseInt(e.target.value) })}
-                  className="flex-grow h-2 border border-black rounded-none appearance-none cursor-pointer"
+onChange={(e) => {
+  const newHsb = {
+    ...hsb,
+    b: parseInt(e.target.value)
+  };
+
+  setHsb(newHsb);
+
+  const l =
+    (newHsb.b / 100) *
+    (1 - newHsb.s / 200) *
+    100;
+
+  setToolState(prev => ({
+    ...prev,
+    color: `hsl(${newHsb.h}, ${newHsb.s}%, ${l}%)`
+  }));
+}}                  className="flex-grow h-2 border border-black rounded-none appearance-none cursor-pointer"
                   style={{
                     background: `linear-gradient(to right, #000000 0%, ${getHslString(hsb.h, hsb.s, 100)} 100%)`,
                     accentColor: "#1C1C1C"

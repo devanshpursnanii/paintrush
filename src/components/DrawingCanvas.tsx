@@ -106,7 +106,7 @@ export const DrawingCanvas = forwardRef<DrawingCanvasHandle, DrawingCanvasProps>
       setHistory((prev) => {
         const newStack = [...prev, currentImgData];
         // Enforce 25 stack ceiling to conserve local system memory
-        if (newStack.length > 25) {
+        if (newStack.length > 10) {
           newStack.shift();
         }
         return newStack;
@@ -255,8 +255,15 @@ const fill = colorToRgb(fillColor);
     }
 
   const stack = [[Math.floor(startX), Math.floor(startY)]];
+  let processed = 0;
+const MAX_PIXELS = 300000;
 
   while (stack.length) {
+    processed++;
+
+if (processed > MAX_PIXELS) {
+  break;
+}
     const [x, y] = stack.pop()!;
 
     if (

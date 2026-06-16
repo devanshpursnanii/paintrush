@@ -255,15 +255,7 @@ const fill = colorToRgb(fillColor);
     }
 
   const stack = [[Math.floor(startX), Math.floor(startY)]];
-  let processed = 0;
-const MAX_PIXELS = 300000;
-
   while (stack.length) {
-    processed++;
-
-if (processed > MAX_PIXELS) {
-  break;
-}
     const [x, y] = stack.pop()!;
 
     if (

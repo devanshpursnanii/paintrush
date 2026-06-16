@@ -6,6 +6,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Palette, Volume2, VolumeX, ShieldAlert, BookOpen, Clock, Award } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
 import { GameStage, Painting, ScoreBreakdown } from "./types";
 import { paintings } from "./data/paintings.ts";
 import { loadOpenCV } from "./lib/cvEvaluation";
@@ -187,6 +188,7 @@ export default function App() {
 >
   MADE WITH ❤️ BY DEVANSH 
 </footer>
+      <Analytics />
     </div>
   );
 }
